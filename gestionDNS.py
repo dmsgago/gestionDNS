@@ -32,7 +32,7 @@ def incluir_reg_a (nombre, ip):
     # Comprueba que la dirección IP del resgistro "PRT" pertenece a la red "10.0.0.0/24"
     commands.getoutput('echo "%s">>/var/cache/bind/db.diego.gn.org'%registro_a)
     if lista_bytes[0] == '10' and lista_bytes[1] == '0' and lista_bytes[2] == '0':
-        commands.getoutput('echo "%s">>/var/cache/bind/db.0.0.10'%registro_b)
+        commands.getoutput('echo "%s">>/var/cache/bind/db.0.0.10'%registro_ptr)
     # Reinicia el demonio bind9
     commands.getoutput('rndc reload')
 
@@ -79,7 +79,7 @@ def ayuda ():
     \t\t-dir
     \t\t\tAñade un registro tipo "A" y actualiza la zona de resolución inversa.
     \t\t-alias
-    \t\t\tAñade un registro tipo "CNAME"
+    \t\t\tAñade un registro tipo "CNAME".
     Ejemplo:
     \tgestionDNS.py -a -dir nombre 10.0.0.100
     \tgestionDNS.py -a -alias apodo nombre
